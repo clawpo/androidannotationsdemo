@@ -20,7 +20,27 @@ android {
         }
     }
     lintOptions {
+        checkReleaseBuilds false
         abortOnError false
+    }
+    productFlavors {
+
+        wandoujia {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+        }
+
+        baidu {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+        }
+
+        c360 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "c360"]
+        }
+
+        uc {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "uc"]
+        }
+
     }
 }
 
@@ -29,11 +49,33 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile 'com.android.support:appcompat-v7:24.2.0'
     testCompile 'junit:junit:4.12'
     apt "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"
     apt "org.androidannotations:roboguice:$AAVersion"
     compile "org.androidannotations:roboguice-api:$AAVersion"
     compile 'org.roboguice:roboguice:3.0.1'
-    compile 'com.android.support:appcompat-v7:24.2.0'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'com.android.support:recyclerview-v7:24.2.0'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile 'com.squareup.okio:okio:1.10.0'
+    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.4.1'
+    compile 'com.google.code.gson:gson:2.7'
+    compile files('libs/MobCommons-2016.1020.1028.jar')
+    compile files('libs/MobTools-2016.1020.1028.jar')
+    compile files('libs/ShareSDK-Core-2.7.8.jar')
+    compile files('libs/ShareSDK-Email-2.7.8.jar')
+    compile files('libs/ShareSDK-QQ-2.7.8.jar')
+    compile files('libs/ShareSDK-QZone-2.7.8.jar')
+    compile files('libs/ShareSDK-ShortMessage-2.7.8.jar')
+    compile files('libs/ShareSDK-SinaWeibo-2.7.8.jar')
+    compile files('libs/ShareSDK-TencentWeibo-2.7.8.jar')
+    compile files('libs/ShareSDK-Wechat-2.7.8.jar')
+    compile files('libs/ShareSDK-Wechat-Core-2.7.8.jar')
+    compile files('libs/ShareSDK-Wechat-Favorite-2.7.8.jar')
+    compile files('libs/ShareSDK-Wechat-Moments-2.7.8.jar')
+    compile project(':lib:bdwallet_pay_sdk')
+    compile project(':lib:pingpp_one')
 }
