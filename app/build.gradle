@@ -25,14 +25,11 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testCompile 'junit:junit:4.12'
-    apt "org.androidannotations:androidannotations:$AAVersion"
-    compile "org.androidannotations:androidannotations-api:$AAVersion"
-    apt "org.androidannotations:roboguice:$AAVersion"
-    compile "org.androidannotations:roboguice-api:$AAVersion"
-    compile 'org.roboguice:roboguice:3.0.1'
+    apt "org.androidannotations:androidannotations:$AAVersion" compile "org.androidannotations:androidannotations-api:$AAVersion" apt "org.androidannotations:roboguice:$AAVersion" compile "org.androidannotations:roboguice-api:$AAVersion" compile 'org.roboguice:roboguice:3.0.1'
+    compile 'com.android.support:appcompat-v7:24.2.0'
 }
